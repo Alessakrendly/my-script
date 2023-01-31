@@ -28,7 +28,7 @@ fi
 # Kernel source
 msg "* Clone kernel source"
 rm -rf kernel
-git clone --depth=1 -b "$BRANCH" https://github.com/XSans0/kernel_xiaomi_vayu kernel
+git clone --depth=1 -b "$BRANCH" https://github.com/PixelExperience-Devices/kernel_xiaomi_sweet
 cd kernel || exit
 
 # Anykernel3
@@ -57,14 +57,14 @@ CLANG_DIR="$HOME_DIR/clang"
 KBUILD_COMPILER_STRING="$("${CLANG_DIR}"/bin/clang --version | head -n 1 | sed -e 's/  */ /g' -e 's/[[:space:]]*$//')"
 ARM64="aarch64-linux-gnu-"
 ARM32="arm-linux-gnueabi-"
-DEVICE="vayu"
+DEVICE="sweet"
 CORES="$(nproc --all)"
 CPU="$(lscpu | sed -nr '/Model name/ s/.*:\s*(.*) */\1/p')"
 BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 COMMIT="$(git log --pretty=format:'%s' -1)"
 COMMIT_HASH="$(git rev-parse HEAD)"
 SHORT_COMMIT_HASH="$(cut -c-8 <<< "$COMMIT_HASH")"
-COMMIT_URL="https://github.com/XSans0/kernel_xiaomi_vayu/commit/$SHORT_COMMIT_HASH"
+COMMIT_URL="https://github.com/PixelExperience-Devices/kernel_xiaomi_sweet/commit/$SHORT_COMMIT_HASH"
 
 # Export
 export ARCH="arm64"
